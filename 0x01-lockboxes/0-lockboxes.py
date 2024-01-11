@@ -35,4 +35,4 @@ def checkNum(num, max_range):
     :param max_range: range
     :return:true if all boxes can be opened else false
     """
-    return 0 <= num <= max_range
+    return 0 <= num < max_range
