@@ -23,4 +23,16 @@ def canUnlockAll(boxes):
         if i in keys:
             keys.update(boxes[i])
 
-    return boxes_count == len(keys)
+    # filter any number out of the set if it is less than zero or more than len boxes
+    filtered = [x for x in keys if checkNum(x, boxes_count)]
+    return boxes_count == len(filtered)
+
+
+def checkNum(num, max_range):
+    """
+    function to check if num is within accepted range 0 - max_range
+    :param num: number to be checked
+    :param max_range: range
+    :return:true if all boxes can be opened else false
+    """
+    return 0 <= num <= max_range
