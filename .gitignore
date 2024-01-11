@@ -1,1 +1,4 @@
 /0x01-lockboxes/.venv/
+.idea
+__pycache__
+.venv

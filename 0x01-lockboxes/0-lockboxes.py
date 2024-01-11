@@ -23,7 +23,8 @@ def canUnlockAll(boxes):
         if i in keys:
             keys.update(boxes[i])
 
-    # filter any number out of the set if it is less than zero or more than len boxes
+    # filter any number out of the set if it is
+    # less than zero or more than len boxes
     filtered = [x for x in keys if checkNum(x, boxes_count)]
     return boxes_count == len(filtered)
 
