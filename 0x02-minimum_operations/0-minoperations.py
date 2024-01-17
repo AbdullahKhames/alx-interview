@@ -20,7 +20,7 @@ def minOperations(n):
     if n == 2:
         return 2
     while sum != n:
-        step, counter = calculate_step(n, sum , step, counter)
+        step, counter = calculate_step(n, sum, step, counter)
         sum += step
         counter += 1
     return counter
