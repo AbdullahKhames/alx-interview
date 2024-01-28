@@ -10,8 +10,9 @@ def validate_format(log):
     Args:
         log (string): the string to be validated
     """
-    pattern = (r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} - \[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d+\] "GET /projects/260 '
-               r'HTTP/1.1" \d{3} \d+$')
+    pattern = (r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} - '
+               r'\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d+\] '
+               r'"GET /projects/260 HTTP/1.1" \d{3} \d+$')
     return bool(re.match(pattern, log))
 
 
