@@ -10,8 +10,8 @@ def validate_format(log):
     Args:
         log (string): the string to be validated
     """
-    pattern = (r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} - \[\d{2}/\w{3}/\d{4}:\d{2}:\d{2}:\d{2} -\d{4}\] "GET '
-               r'/projects/260 HTTP/1.1" \d{3} \d+$')
+    pattern = (r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} - \[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d+\] "GET /projects/260 '
+               r'HTTP/1.1" \d{3} \d+$')
     return bool(re.match(pattern, log))
 
 
@@ -39,9 +39,10 @@ def parse_logs():
     file_size = 0
     codes = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
 
-    while log:
+    while log != '':
         try:
             if not validate_format(log):
+                log = input()
                 continue
             # Use re.search to find the match in the line
             match = re.search(pattern, log)
