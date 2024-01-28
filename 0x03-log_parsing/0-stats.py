@@ -39,9 +39,8 @@ def parse_logs():
     counter = 0
     file_size = 0
     codes = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
-
-    while log:
-        try:
+    try:
+        while log:
             if not validate_format(log):
                 log = input()
                 continue
@@ -58,9 +57,8 @@ def parse_logs():
             if counter % 10 == 0:
                 print_details(file_size, codes)
             log = input()
-        except KeyboardInterrupt as ex:
-            print_details(file_size, codes)
-            continue
+    except KeyboardInterrupt as ex:
+        print_details(file_size, codes)
 
 
 if __name__ == '__main__':
