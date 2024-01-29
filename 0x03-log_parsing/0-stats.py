@@ -57,7 +57,7 @@ def parse_logs():
             if counter % 10 == 0:
                 print_details(file_size, codes)
             log = input()
-    except KeyboardInterrupt as ex:
+    except Exception as ex:
         print_details(file_size, codes)
 
 
