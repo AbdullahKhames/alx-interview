@@ -8,44 +8,12 @@ def validUTF8(data):
     Args:
         data (list of integers): set to be checked for utf-8 validity
     """
-    # for c in data:
-    #     if not validChar(c):
-    #         return False
-    # return True
-    successive_10 = 0
-    for b in data:
-        b = bin(b).replace('0b','').rjust(8, '0')
-        if successive_10 != 0:
-            successive_10 -= 1
-            if not b.startswith('10'):
-                return False
-        elif b[0] == '1':
-                successive_10 = len(b.split('0')[0]) - 1
-    return True
-
-
-# def validChar(c):
-#     """checks for single char
-
-#     Args:
-#         c (char): char to be checked for utf-8 validity
-#     """
-#     binary_string = getBinary(c)
-
-
-
-# def getBinary(number):
-#     """returns the binary representation of char
-
-#     Args:
-#         number (char): char to be converted
-#     """
-#     ans = ""
-#     if ( number == 0 ):
-#         return 0
-#     while ( number ):
-#         ans += str(number&1)
-#         number = number >> 1        
-#     ans = ans[::-1]
- 
-#     return ans 
+    for i in range(len(data)):
+            if data[i] < 0 or data[i] > 255:
+                # handle only the 8 least significant bits
+                data[i] = int(bin(data[i])[-8:], 2)
+    try:
+        bytes(data).decode(encoding='utf-8', errors='strict')
+        return True
+    except Exception:
+        return False
