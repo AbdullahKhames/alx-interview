@@ -1,6 +1,16 @@
 #!/usr/bin/python3
 
 def makeChange(coins, total):
+    """make change function to get the smallest
+    number of coins to get to a total
+
+    Args:
+        coins (list): the coins to combine
+        total (int): the total to reach
+
+    Returns:
+        int: the count of coins
+    """
     if total <= 0:
         return 0
     coins.sort(reverse=True)
