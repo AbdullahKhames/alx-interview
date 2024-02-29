@@ -1,8 +1,9 @@
 #!/usr/bin/python3
+
 def makeChange(coins, total):
     if total <= 0:
         return 0
-    coins.sort(reverse = True)
+    coins.sort(reverse=True)
     current_sum = []
     for i in range(len(coins)):
         while sum(current_sum) + coins[i] <= total:
