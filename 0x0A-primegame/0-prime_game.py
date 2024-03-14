@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """is winner function"""
 
+
 def is_prime(x: int) -> bool:
     """Return True if x is a prime number, False otherwise."""
     if x == 1:
